@@ -1,12 +1,17 @@
-import Login from "./features/auth/components/Login";
+import React from "react";
+import { LoginForm } from "./components/LoginForm";
 
-function App() {
-  const handleLogin = (username: string, password: string) => {
-    console.log("Login attempt:", { username, password });
-    // 这里可以添加实际的登录逻辑
+/**
+ * App Component
+ *
+ * 主应用组件
+ */
+const App: React.FC = () => {
+  const handleLogin = (email: string, password: string): void => {
+    console.log("Login attempt:", { email, password });
   };
 
-  return <Login onLogin={handleLogin} />;
-}
+  return <LoginForm onLogin={handleLogin} />;
+};
 
 export default App;

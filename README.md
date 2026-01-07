@@ -1,6 +1,6 @@
 # My React Tailwind App
 
-一个基于 React、TypeScript 和 Tailwind CSS 构建的现代化前端项目。
+一个基于规范文档和UI设计图片生成的 React、TypeScript 和 Tailwind CSS 构建的现代化前端项目。
 
 ## 项目特点
 

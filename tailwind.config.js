@@ -36,9 +36,6 @@ export default {
         'checkbox-button-gap': '24px',
         'button-link-gap': '8px',
       },
-      width: {
-        'form': '320px',
-      },
       height: {
         'button': '40px',
       },

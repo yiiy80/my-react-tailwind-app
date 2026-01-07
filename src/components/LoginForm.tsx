@@ -32,8 +32,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
 
   return (
     <div className="min-h-screen bg-page-bg flex items-center justify-center">
-      {/* 表单容器 - 320px 宽度，水平居中 */}
-      <div className="w-form">
+      {/* 表单容器 - 280px 宽度，水平居中 */}
+      <div className="w-[250px]">
         {/* Logo/标题区域 */}
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-medium text-white mb-2">Welcome Back</h1>

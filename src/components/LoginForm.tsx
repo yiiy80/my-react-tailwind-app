@@ -62,7 +62,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                const v = e.target.value;
+                setEmail(v);
+                if (errors.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+                  setErrors((s) => ({ ...s, email: undefined }));
+                }
+              }}
               onBlur={() => {
                 // validate email on blur
                 if (errors.email) {
@@ -111,7 +117,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                const v = e.target.value;
+                setPassword(v);
+                if (errors.password && v.length >= 8) {
+                  setErrors((s) => ({ ...s, password: undefined }));
+                }
+              }}
               onBlur={() => {
                 if (errors.password && password.length >= 8)
                   setErrors((s) => ({ ...s, password: undefined }));
@@ -190,13 +202,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-page-bg
                                    disabled:bg-primary-disabled disabled:cursor-not-allowed
                                    transition duration-200"
-            disabled={
-              isSubmitting ||
-              !!errors.email ||
-              !!errors.password ||
-              !email ||
-              !password
-            }
+            disabled={isSubmitting}
           >
             Log in
           </button>

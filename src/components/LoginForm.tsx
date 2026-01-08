@@ -179,7 +179,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               />
               <label
                 htmlFor="remember"
-                className="text-sm text-gray-300 cursor-pointer select-none  inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
+                className="text-sm text-gray-500 cursor-pointer select-none  inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
               >
                 Remember me
               </label>

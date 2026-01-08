@@ -26,9 +26,9 @@ export const ThemeToggle: React.FC = () => {
       className="fixed top-4 right-4 z-50 inline-flex items-center justify-center rounded text-sm/0.8 transform hover:scale-110 transition duration-200 motion-reduce:transition-none"
     >
       {theme === "light" ? (
-        <Sun size={18} className="text-on-page" />
-      ) : (
         <Moon size={18} className="text-on-page" />
+      ) : (
+        <Sun size={18} className="text-on-page" />
       )}
     </button>
   );

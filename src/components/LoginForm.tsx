@@ -174,7 +174,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                 className="w-[15px] h-[15px] appearance-none 
                                            border-2 border-checkbox-border rounded-checkbox
                                            checked:bg-primary checked:border-primary
-                                           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-page-bg
                                            cursor-pointer transition-colors duration-200"
               />
               <label

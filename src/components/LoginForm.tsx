@@ -47,12 +47,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
       <div className="w-[250px]">
         {/* Logo/标题区域 */}
         <div className="mb-8 text-center">
-          <h1 className="text-2xl font-medium text-on-page mb-2">
-            Welcome Back
-          </h1>
-          <p className="text-sm text-gray-400">
-            Please sign in to your account
-          </p>
+          <h1 className="text-2xl font-medium text-on-page mb-2">欢迎回来</h1>
+          <p className="text-sm text-gray-400">请登录您的账号继续使用</p>
         </div>
 
         {/* 登录表单 */}
@@ -77,7 +73,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                     setErrors((s) => ({ ...s, email: undefined }));
                 }
               }}
-              placeholder="Username"
+              placeholder="邮箱输入框"
               className="w-full px-10 py-3 bg-input-bg border border-input-border rounded-input 
                                        text-input-text text-input placeholder-placeholder
                                        focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
@@ -97,7 +93,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             )}
             {/* 用户名图标 */}
             <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-placeholder"
+              className="absolute left-3 top-1/3 -translate-y-1/2 w-5 h-5 text-placeholder"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -128,7 +124,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                 if (errors.password && password.length >= 8)
                   setErrors((s) => ({ ...s, password: undefined }));
               }}
-              placeholder="Password"
+              placeholder="密码输入框"
               className="w-full px-10 py-3 bg-input-bg border border-input-border rounded-input 
                                        text-input-text text-input placeholder-placeholder
                                        focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
@@ -148,7 +144,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             )}
             {/* 密码图标 */}
             <svg
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-placeholder"
+              className="absolute left-3 top-1/3 -translate-y-1/2 w-5 h-5 text-placeholder"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -180,7 +176,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                 htmlFor="remember"
                 className="text-sm text-gray-500 cursor-pointer select-none  inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
               >
-                Remember me
+                记住我
               </label>
             </div>
             <a
@@ -188,7 +184,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               className="text-primary text-link no-underline
                                         inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
             >
-              Forgot password
+              忘记密码?
             </a>
           </div>
 
@@ -212,7 +208,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               href="#"
               className="text-primary text-link no-underline inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
             >
-              register now!
+              注册新账号
             </a>
           </div>
         </form>

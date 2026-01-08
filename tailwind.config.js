@@ -9,7 +9,7 @@ export default {
       colors: {
         // 主要强调色 - Teal 400
         'primary': '#00BFA5',
-        'primary-hover': '#00A896',
+        'primary-hover': '#008866',
         'primary-disabled': 'rgba(189, 189, 189, 0.5)',
         
         // 颜色方案

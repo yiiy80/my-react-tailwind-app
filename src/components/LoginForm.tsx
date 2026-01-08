@@ -1,18 +1,5 @@
 import React, { useState, useCallback } from "react";
 
-/**
- * LoginForm Component
- *
- * 登录页面组件 - 符合设计规范
- *
- * 设计规范：
- * - 页面背景：纯黑色 #000000
- * - 主要强调色：Teal 400 #00BFA5
- * - 输入框：白色背景 #FFFFFF，边框 #E0E0E0
- * - 输入文字：深灰色 #212121
- * - 占位符：浅灰色 #9E9E9E
- * - 复选框边框：浅灰色 #BDBDBD
- */
 interface LoginFormProps {
   onLogin?: (email: string, password: string) => void;
 }
@@ -120,7 +107,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               />
               <label
                 htmlFor="remember"
-                className="text-sm text-gray-300 cursor-pointer select-none"
+                className="text-sm text-gray-300 cursor-pointer select-none  inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
               >
                 Remember me
               </label>
@@ -128,7 +115,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             <a
               href="#"
               className="text-primary text-link no-underline
-                                       hover:opacity-80 transition-opacity duration-200"
+                                        inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
             >
               Forgot password
             </a>
@@ -138,11 +125,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           <button
             type="submit"
             className="w-full h-button bg-primary text-white text-button font-medium
-                                   rounded-button py-3 px-4
+                                   rounded-button py-2 px-4
                                    hover:bg-primary-hover
                                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-page-bg
                                    disabled:bg-primary-disabled disabled:cursor-not-allowed
-                                   transition-colors duration-200"
+                                   transition duration-200"
           >
             Log in
           </button>
@@ -151,8 +138,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
           <div className="text-left mt-button-link-gap">
             <a
               href="#"
-              className="text-primary text-link no-underline
-                                       hover:opacity-80 transition-opacity duration-200"
+              className="text-primary text-link no-underline inline-block transform hover:scale-105 hover:opacity-80 transition duration-200 motion-reduce:transition-none"
             >
               register now!
             </a>

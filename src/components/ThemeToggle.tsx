@@ -22,7 +22,7 @@ export const ThemeToggle: React.FC = () => {
       aria-label="Toggle theme"
       title="Toggle theme"
       onClick={handleToggle}
-      className="fixed top-4 right-4 z-50 inline-flex items-center justify-center p-2 rounded bg-input-bg border border-input-border text-sm shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary"
+      className="fixed top-4 right-4 z-50 inline-flex items-center justify-center rounded text-sm/0.8 transform hover:scale-110 transition duration-200 motion-reduce:transition-none"
     >
       {theme === "light" ? "🌙" : "☀️"}
     </button>

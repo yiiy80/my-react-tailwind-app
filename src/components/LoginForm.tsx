@@ -56,7 +56,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
         </div>
 
         {/* 登录表单 */}
-        <form onSubmit={handleSubmit} className="space-y-input-gap">
+        <form noValidate onSubmit={handleSubmit} className="space-y-input-gap">
           {/* 邮箱输入框 */}
           <div className="relative">
             <input

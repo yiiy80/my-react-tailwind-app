@@ -65,9 +65,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               onChange={(e) => {
                 const v = e.target.value;
                 setEmail(v);
-                if (errors.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+                // Clear email error as soon as user modifies the field
+                if (errors.email)
                   setErrors((s) => ({ ...s, email: undefined }));
-                }
               }}
               onBlur={() => {
                 // validate email on blur
@@ -120,9 +120,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               onChange={(e) => {
                 const v = e.target.value;
                 setPassword(v);
-                if (errors.password && v.length >= 8) {
+                // Clear password error as soon as user types
+                if (errors.password)
                   setErrors((s) => ({ ...s, password: undefined }));
-                }
               }}
               onBlur={() => {
                 if (errors.password && password.length >= 8)

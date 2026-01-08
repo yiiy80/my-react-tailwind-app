@@ -16,6 +16,12 @@ test('shows validation errors and prevents submit for invalid input', async ({ p
 
   // no login attempt logged
   expect(messages.some((m) => m.includes('Login attempt'))).toBeFalsy();
+
+  // when user modifies inputs, corresponding errors should disappear immediately
+  await page.getByPlaceholder('Username').fill('i');
+  await expect(page.getByText('请输入有效的邮箱地址')).not.toBeVisible();
+  await page.getByPlaceholder('Password').fill('1');
+  await expect(page.getByText('密码长度至少 8 位')).not.toBeVisible();
 });
 
 test('submits when input is valid and calls onLogin', async ({ page }) => {

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LoginForm } from "./components/LoginForm";
+import ThemeToggle from "./components/ThemeToggle";
+import { initTheme } from "./utils/theme";
 
 /**
  * App Component
@@ -11,7 +13,17 @@ const App: React.FC = () => {
     console.log("Login attempt:", { email, password });
   };
 
-  return <LoginForm onLogin={handleLogin} />;
+  useEffect(() => {
+    // Ensure theme is initialized when app mounts
+    initTheme();
+  }, []);
+
+  return (
+    <>
+      <ThemeToggle />
+      <LoginForm onLogin={handleLogin} />
+    </>
+  );
 };
 
 export default App;

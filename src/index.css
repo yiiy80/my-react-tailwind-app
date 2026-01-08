@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Theme variables (dark is default) */
+:root {
+	--color-primary: #00BFA5; /* Teal 400 */
+	--color-primary-hover: #008866;
+	--color-primary-disabled: rgba(189, 189, 189, 0.5);
+
+	--color-page-bg: #000000;
+	--color-input-bg: #FFFFFF;
+	--color-input-border: #E0E0E0;
+	--color-input-text: #212121;
+	--color-placeholder: #9E9E9E;
+	--color-checkbox-border: #BDBDBD;
+
+	/* color used for text on the page bg (light on dark, dark on light) */
+	--color-on-page: #FFFFFF;
+}
+
+/* Light theme overrides */
+.theme-light {
+	--color-page-bg: #FFFFFF;
+	--color-input-bg: #FFFFFF;
+	--color-input-border: #E0E0E0;
+	--color-input-text: #212121;
+	--color-placeholder: #6B6B6B;
+	--color-checkbox-border: #9E9E9E;
+
+	--color-on-page: #000000;
+}
+
+/* Utility: theme-aware on-page text */
+.text-on-page {
+	color: var(--color-on-page);
+}
+
+/* Smooth color transitions */
+html.theme-light,
+:root {
+	transition: background-color 200ms ease, color 200ms ease;
+}

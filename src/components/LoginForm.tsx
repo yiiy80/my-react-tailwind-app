@@ -23,7 +23,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
       <div className="w-[250px]">
         {/* Logo/标题区域 */}
         <div className="mb-8 text-center">
-          <h1 className="text-2xl font-medium text-white mb-2">Welcome Back</h1>
+          <h1 className="text-2xl font-medium text-on-page mb-2">
+            Welcome Back
+          </h1>
           <p className="text-sm text-gray-400">
             Please sign in to your account
           </p>

@@ -8,13 +8,37 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [rememberMe, setRememberMe] = useState<boolean>(false);
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+    {}
+  );
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const validate = useCallback(() => {
+    const next: { email?: string; password?: string } = {};
+    // simple email regex
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      next.email = "请输入有效的邮箱地址";
+    }
+    if (password.length < 8) {
+      next.password = "密码长度至少 8 位";
+    }
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  }, [email, password]);
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
-      onLogin?.(email, password);
+      if (!validate()) return;
+      try {
+        setIsSubmitting(true);
+        // delegate actual login to caller
+        await Promise.resolve(onLogin?.(email, password));
+      } finally {
+        setIsSubmitting(false);
+      }
     },
-    [email, password, onLogin]
+    [email, password, onLogin, validate]
   );
 
   return (
@@ -39,13 +63,32 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => {
+                // validate email on blur
+                if (errors.email) {
+                  // re-validate
+                  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+                    setErrors((s) => ({ ...s, email: undefined }));
+                }
+              }}
               placeholder="Username"
               className="w-full px-10 py-3 bg-input-bg border border-input-border rounded-input 
                                        text-input-text text-input placeholder-placeholder
                                        focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
                                        transition-colors duration-200"
               required
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
             />
+            {errors.email && (
+              <p
+                id="email-error"
+                role="alert"
+                className="text-sm text-red-400 mt-1"
+              >
+                {errors.email}
+              </p>
+            )}
             {/* 用户名图标 */}
             <svg
               className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-placeholder"
@@ -69,13 +112,28 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onBlur={() => {
+                if (errors.password && password.length >= 8)
+                  setErrors((s) => ({ ...s, password: undefined }));
+              }}
               placeholder="Password"
               className="w-full px-10 py-3 bg-input-bg border border-input-border rounded-input 
                                        text-input-text text-input placeholder-placeholder
                                        focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
                                        transition-colors duration-200"
               required
+              aria-invalid={!!errors.password}
+              aria-describedby={errors.password ? "password-error" : undefined}
             />
+            {errors.password && (
+              <p
+                id="password-error"
+                role="alert"
+                className="text-sm text-red-400 mt-1"
+              >
+                {errors.password}
+              </p>
+            )}
             {/* 密码图标 */}
             <svg
               className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-placeholder"
@@ -132,6 +190,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                                    focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-page-bg
                                    disabled:bg-primary-disabled disabled:cursor-not-allowed
                                    transition duration-200"
+            disabled={
+              isSubmitting ||
+              !!errors.email ||
+              !!errors.password ||
+              !email ||
+              !password
+            }
           >
             Log in
           </button>

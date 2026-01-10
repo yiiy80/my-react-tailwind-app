@@ -25,6 +25,8 @@ test('shows validation errors and prevents submit for invalid input', async ({ p
 
   // Take screenshot
   await page.screenshot({ path: 'test-results/screenshot.png' });
+  /*node scripts/create-excel.js */
+
 });
 
 test('submits when input is valid and calls onLogin', async ({ page }) => {

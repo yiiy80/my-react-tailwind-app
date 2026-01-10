@@ -22,6 +22,9 @@ test('shows validation errors and prevents submit for invalid input', async ({ p
   await expect(page.getByText('请输入有效的邮箱地址')).not.toBeVisible();
   await page.getByPlaceholder('密码输入框').fill('1');
   await expect(page.getByText('密码长度至少 8 位')).not.toBeVisible();
+
+  // Take screenshot
+  await page.screenshot({ path: 'test-results/screenshot.png' });
 });
 
 test('submits when input is valid and calls onLogin', async ({ page }) => {

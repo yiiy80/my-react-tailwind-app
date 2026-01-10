@@ -7,9 +7,9 @@ test('shows validation errors and prevents submit for invalid input', async ({ p
   await page.goto('/');
 
   // enter invalid email and short password
-  await page.getByPlaceholder('Username').fill('invalid-email');
-  await page.getByPlaceholder('Password').fill('123');
-  await page.getByRole('button', { name: /log in/i }).click();
+  await page.getByPlaceholder('邮箱输入框').fill('invalid-email');
+  await page.getByPlaceholder('密码输入框').fill('123');
+  await page.getByRole('button', { name: /登录/i }).click();
 
   await expect(page.getByText('请输入有效的邮箱地址')).toBeVisible();
   await expect(page.getByText('密码长度至少 8 位')).toBeVisible();
@@ -18,9 +18,9 @@ test('shows validation errors and prevents submit for invalid input', async ({ p
   expect(messages.some((m) => m.includes('Login attempt'))).toBeFalsy();
 
   // when user modifies inputs, corresponding errors should disappear immediately
-  await page.getByPlaceholder('Username').fill('i');
+  await page.getByPlaceholder('邮箱输入框').fill('i');
   await expect(page.getByText('请输入有效的邮箱地址')).not.toBeVisible();
-  await page.getByPlaceholder('Password').fill('1');
+  await page.getByPlaceholder('密码输入框').fill('1');
   await expect(page.getByText('密码长度至少 8 位')).not.toBeVisible();
 });
 
@@ -29,9 +29,9 @@ test('submits when input is valid and calls onLogin', async ({ page }) => {
   page.on('console', (msg) => messages.push(msg.text()));
 
   await page.goto('/');
-  await page.getByPlaceholder('Username').fill('user@example.com');
-  await page.getByPlaceholder('Password').fill('12345678');
-  await page.getByRole('button', { name: /log in/i }).click();
+  await page.getByPlaceholder('邮箱输入框').fill('user@example.com');
+  await page.getByPlaceholder('密码输入框').fill('12345678');
+  await page.getByRole('button', { name: /登录/i }).click();
 
   // onLogin logs to console in App
   await expect.poll(() => messages.some((m) => m.includes('Login attempt')), { timeout: 3000 }).toBeTruthy();

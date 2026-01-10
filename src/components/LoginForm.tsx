@@ -42,9 +42,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   );
 
   return (
-    <div className="min-h-screen bg-page-bg flex items-center justify-center">
-      {/* 表单容器 - 280px 宽度，水平居中 */}
-      <div className="w-[250px]">
+    <div className="bg-page-bg flex items-center justify-center">
+      {/* 表单容器 - 250px 宽度，水平居中 */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         {/* Logo/标题区域 */}
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-medium text-on-page mb-2">欢迎回来</h1>
@@ -93,7 +93,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             )}
             {/* 用户名图标 */}
             <svg
-              className="absolute left-3 top-1/3 -translate-y-1/2 w-5 h-5 text-placeholder"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-placeholder"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
             )}
             {/* 密码图标 */}
             <svg
-              className="absolute left-3 top-1/3 -translate-y-1/2 w-5 h-5 text-placeholder"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-placeholder"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -167,7 +167,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                 id="remember"
                 checked={rememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="w-[15px] h-[15px] appearance-none 
+                className="w-[15px] h-[15px] appearance-none
                                            border-2 border-checkbox-border rounded-checkbox
                                            checked:bg-primary checked:border-primary
                                            cursor-pointer transition-colors duration-200"
@@ -199,7 +199,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                                    transition duration-200"
             disabled={isSubmitting}
           >
-            Log in
+            登录
           </button>
 
           {/* 注册链接 - 与按钮间距 8px */}

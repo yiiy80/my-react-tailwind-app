@@ -42,9 +42,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   );
 
   return (
-    <div className="bg-page-bg flex items-center justify-center">
+    <div className="min-h-screen bg-page-bg flex justify-center">
       {/* 表单容器 - 250px 宽度，水平居中 */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="mt-[13vh] w-[250px]">
         {/* Logo/标题区域 */}
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-medium text-on-page mb-2">欢迎回来</h1>
